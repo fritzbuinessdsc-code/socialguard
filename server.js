@@ -5,10 +5,13 @@ const path    = require('path');
 
 const app    = express();
 const server = http.createServer(app);
-const wss    = new WebSocket.Server({ server });
+const wss    = new WebSocket.Server({ server, path: '/ws' });
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
+
+// Health check for Render.com
+app.get('/health', (req, res) => res.send('OK'));
 
 // ── Teacher password (set via environment variable TEACHER_PASSWORD) ──────
 const TEACHER_PASSWORD = process.env.TEACHER_PASSWORD || 'lehrer2024';
