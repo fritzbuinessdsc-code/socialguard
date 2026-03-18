@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -493,7 +494,7 @@ textarea::placeholder { color:var(--muted); }
 <script>
 // ══ CONFIG ══
 // WebSocket URL: im selben Verzeichnis wie der Server
-const WS_URL = (location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host;
+const WS_URL = (location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host + '/ws';
 
 // ══ LOCAL STATE ══
 const local = {
